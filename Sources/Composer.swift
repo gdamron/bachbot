@@ -1,3 +1,0 @@
-protocol Composer {
-    func compose()
-}
