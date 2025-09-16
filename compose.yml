@@ -1,0 +1,14 @@
+services:
+  bachbot:
+    build: .
+    restart: unless-stopped
+    environment:
+      DEVICE_ID: ${DEVICE_ID}
+      MQTT_HOST: ${MQTT_HOST}
+      MQTT_PORT: ${MQTT_PORT}
+      AWS_CA_PATH: /app/certs/${AWS_CA_PATH}
+      AWS_CERT_PATH: /app/certs/${AWS_CERT_PATH}
+      AWS_KEY_PATH: /app/certs/${AWS_KEY_PATH}
+      RUST_LOG: info
+    volumes:
+      - ./certs:/app/certs:ro
